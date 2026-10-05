@@ -1,0 +1,249 @@
+{% extends 'orders/base.html' %}
+{% block title %}Products{% endblock %}
+{% load static %} 
+{% block content %}
+
+<section class="service-section py-5">
+    <div class="container">
+        <h5 class="text-primary fw-bold">Welcome to Our Refill Services</h5>
+        <h1 class="fw-bold">Sustainable Water Refills</h1>
+
+        <p class="lead text-muted">
+            Discover the benefits of our eco-friendly water refill services, designed to provide you
+            with high-quality water while reducing plastic waste.
+        </p>
+        <p class="lead text-muted">
+            Our refill process ensures that you receive clean, safe, and great-tasting water every
+            time, all while supporting a sustainable future.
+        </p>
+        <p class="lead text-muted">
+            Join us in making a positive impact on the environment with every refill.
+        </p>
+
+        <div class="mt-4">
+            <p class="d-flex align-items-center">
+                <i class="fa-solid fa-leaf text-primary me-2"></i> 
+                <strong>Eco-Friendly</strong>
+            </p>
+            <p class="text-muted ms-4">
+                Reduce plastic waste with our reusable containers.
+            </p>
+
+            <p class="d-flex align-items-center">
+                <i class="fa-solid fa-circle-check text-primary me-2"></i> 
+                <strong>High Quality</strong>
+            </p>
+            <p class="text-muted ms-4">
+                Enjoy clean and safe water with every refill.
+            </p>
+            <p class="d-flex align-items-center">
+                <i class="fa-solid fa-truck text-primary me-2"></i> 
+                <strong>Convenient Delivery</strong>
+            </p>
+            <p class="text-muted ms-4">
+                Get your water refills delivered straight to your door.
+            </p>
+        </div>
+        <p class="text-muted">Experience the convenience and quality of our water refill services today.</p>
+        <p class="text-muted">Together, we can make a difference—one refill at a time.</p>
+        <a href="{% url 'order_now' %}?product=water" class="btn btn-primary mt-2">Order Water</a>
+    </div>
+    </section>
+
+    <div class="container my-4 ms-4">
+        <div class="ms-4">
+            <p class="fw-bold fs-5">Sustainability is not just a choice, it's a responsibility. Let's refill, not landfill.</p>
+        </div>
+    
+        <div class="ms-4 my-3 d-flex align-items">
+            <img src="{% static 'images/botti.png' %}" class="rounded-circle me-2" alt="Shop Logo" width="50">
+            <div>
+                <h5 class="mb-0 fw-bold">Water and Cooking Oil Refill Shop</h5>
+                <small class="text-muted">Committed to Sustainability</small>
+            </div>
+        </div>
+    
+        <div class="ms-4">
+            <img src="{% static 'images/ref.png' %}" class="img-fluid rounded-4" alt="Water Bottles" width="500px">
+        </div>
+    </div>
+    
+
+<section class="section">
+    <div class="text-content">
+        <h6 class="text-primary fw-bold">Discover Our Cooking Oils</h6>
+        <h1 class="fw-bold">Quality You Can Trust</h1>
+        <p class="text-muted">Our cooking oils are carefully selected to ensure the highest quality and taste for your culinary creations.</p>
+
+        <p class="text-muted">From frying to baking, our cooking oils are versatile and perfect for all your kitchen needs. Explore our range and find the perfect oil for your dishes.</p>
+        
+        <h6 class="fw-bold "><i class="fa-solid fa-seedling text-primary"></i> Pure & Natural</h6>
+        <p class="text-muted ms-4">Our oils are 100% natural, with no additives or preservatives.</p>
+
+        <h6 class="fw-bold "><i class="fa fa-heart text-primary"></i> Healthy Choice</h6>
+        <p class="text-muted ms-4">Perfect for a balanced and nutritious diet.</p>
+
+        <h6 class="fw-bold "><i class="fa-solid fa-truck text-primary"></i> Convenient Delivery</h6>
+        <p class="text-muted ms-4">Get your cooking oils delivered fresh to your kitchen.</p>
+
+        <div class="container mt-5">
+            <h2 class="custom-heading">No Kitchen? No Problem.</h2>
+            <p class="text-muted custom-text">Even if you're not a professional chef, our oils are perfect for home cooking and everyday meals.</p>
+            <a href="{% url 'order_now' %}?product=oil" class="btn btn-primary mt-2">Order Cooking Oil</a>
+        </div>
+    </div>
+
+    <div class="image-content">
+        <img src="{% static 'images/cook.png' %}" class="img-fluid rounded-4" alt="Cooking Oil">
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section container-fluid" id="faq">
+    <div class="row align-items-center">
+        <!-- Image Section -->
+        <div class="col-md-6 align-items-center">
+            <img src="{% static 'images/faq.png' %}" alt="Delivery Van" class="img-fluid rounded-4 faq-image">
+        </div>
+
+        <!-- FAQ Content Section -->
+        <div class="col-md-6">
+            <h6 class="text-primary fw-bold ">GOT QUESTIONS?</h6>
+            <h2 class="fw-bold">Frequently Asked Questions</h2>
+
+            <!-- Accordion for FAQs -->
+            <div class="accordion" id="faqAccordion">
+                <!-- Question 1 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            How do I place an order for water refills?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show">
+                        <div class="accordion-body text-muted">
+                            Simply visit our website, select your preferred water refill option, and schedule a delivery. It's that easy!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            What types of cooking oils do you offer?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse">
+                        <div class="accordion-body text-muted">
+                            We offer a variety of cooking oils including vegetable oil, sunflower oil, and olive oil. All are available for refill.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                            Is delivery available in my area?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse">
+                        <div class="accordion-body text-muted">
+                            We offer delivery services in most areas. Please check our website or contact us to confirm availability in your location.
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Add more questions as needed -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- how to order -->
+<section class="order-section my-5">
+    <div class="container text-center">
+        <h2 class="section-title my-5">How to Order</h2>
+        <p class="section-subtitle text-muted">
+            Follow these simple steps to place your order for water or cooking oil refills.
+        </p>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="order-step">
+                    <i class="fas fa-shopping-cart text-primary"></i>
+                    <p>Select Your Product</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="order-step">
+                    <i class="fas fa-calendar-alt text-primary" ></i>
+                    <p>Schedule Delivery</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="order-step">
+                    <i class="fas fa-truck text-primary"></i>
+                    <p>Receive Your Order</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="order-step">
+                    <i class="fas fa-recycle text-primary"></i>
+                    <p>Refill & Reuse</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- why choose us -->
+<section class="choose-us-section">
+    <div class="container">
+        <h2 class="text-center section-title">Why Choose Us?</h2>
+        <div class="row mt-4">
+            <div class="col-md-6 d-flex">
+                <div class="icon-box">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div>
+                    <h4 class="feature-title">Sustainability</h4>
+                    <p>We are committed to reducing plastic waste and promoting eco-friendly practices.</p>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex">
+                <div class="icon-box">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div>
+                    <h4 class="feature-title">Quality Assurance</h4>
+                    <p>Our products are carefully selected to ensure the highest quality and safety standards.</p>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex mt-4">
+                <div class="icon-box">
+                    <i class="fas fa-smile"></i>
+                </div>
+                <div>
+                    <h4 class="feature-title">Customer Satisfaction</h4>
+                    <p>We prioritize your experience and strive to exceed your expectations with every order.</p>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex mt-4">
+                <div class="icon-box">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div>
+                    <h4 class="feature-title">Convenience</h4>
+                    <p>With our easy ordering and delivery options, getting your refills has never been easier.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

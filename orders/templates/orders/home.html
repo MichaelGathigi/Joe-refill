@@ -1,0 +1,101 @@
+{% extends 'orders/base.html' %}
+{% block title %}Home{% endblock %}
+{% load static %} 
+{% block content %}
+
+    <!-- Hero Section -->
+    <section class="text-center container-fluid py-5" style="background: linear-gradient(to bottom, #e0f2ff, white);">
+        <div class="container">
+            <p class="text-primary fw-bold">Clean water &amp; quality cooking oil, delivered across Voi.</p>
+            <h1 class="display-4 fw-bold">Refill Your Essentials with Ease</h1>
+            <p class="lead text-muted">Discover the convenience of our water and cooking oil refill services, delivered straight to your door.</p>
+            <div class="mt-4">
+                <a href="{% url 'product' %}" class="btn btn-primary btn-lg">Explore Our Services</a>
+                <a href="{% url 'order_now' %}" class="btn btn-outline-dark btn-lg">Schedule a Delivery</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+<section class=" container-fluid my-5 text-center" style="background: linear-gradient(to bottom, #e0f2ff,#e0f2ff);">
+    <p class="lead text-center">Experience the ease of refilling your essential water and cooking oil with our streamlined services.</p>
+    <h2 class="fw-bold text-center">Our Services at a Glance</h2>
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-4">
+            <div class="">
+                <h4>Pure Water Refills</h4>
+                <p>Enjoy crystal-clear water with our eco-friendly refill solutions.</p>
+                <img src="{% static 'images/retaw.png' %}" class="img-fluid rounded" alt="Water Refill">
+                <p>Our water is sourced and purified to ensure the highest quality for your daily needs.</p>
+                <a href="{% url 'order_now' %}?product=water" class="btn btn-outline-primary mb-4">Order Water</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="">
+                <h4>Premium Cooking Oil</h4>
+                <p>Elevate your cooking with our range of high-quality oils.</p>
+                <img src="{% static 'images/oil.png' %}" class="img-fluid rounded" alt="Cooking Oil Refill">
+                <p>Choose from a variety of oils tailored to enhance your culinary creations.</p>
+                <a href="{% url 'order_now' %}?product=oil" class="btn btn-outline-primary mb-4">Order Cooking Oil</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="">
+                <h4>Convenient Delivery</h4>                
+                <p>Get your essentials delivered right to your doorstep.</p>
+                <img src="{% static 'images/nduthi.png' %}" class="img-fluid rounded" alt="Delivery Service">
+                <p>Our delivery service is designed for your convenience, ensuring you never run out of essentials.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--Ready Section -->
+<section class="container-fluid py-5 text-center" style="background: linear-gradient(to bottom,#e0f2ff,#e0f2ff );">
+    <h2 class="fw-bold">Ready to Refill</h2>
+    <p class="lead text-center my-2">Join countless satisfied customers who trust us for their water and cooking oil needs.</p>
+    <a href="{% url 'order_now' %}" class="btn btn-success btn-lg">Order Now</a>
+    <a href="{% url 'contact' %}" class="btn btn-outline-dark btn-lg">Contact Us</a>
+    {% if user.is_authenticated %}
+    <p class="my-2">Welcome back, {{ user.username }}! <a href="{% url 'my_orders' %}" class="text-decoration-none">View your orders</a></p>
+    {% else %}
+    <p class="my-2">Already a customer? <a href="{% url 'login' %}" class="text-decoration-none">Log In</a></p>
+    {% endif %}
+</section>
+
+<!--Get in touch Section -->
+<section class="contact-section text-white py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Left Side: Contact Info -->
+            <div class="col-md-6">
+                <h6 class="text-uppercase">Get in Touch with Us</h6>
+                <h2 class="fw-bold">We're Here to Help</h2>
+                <p class="mt-3">Monday - Saturday, 8:00 am to 8:00 pm</p>
+                <p>Our team is ready to assist you with any inquiries or delivery scheduling.</p>
+            </div>
+
+            <!-- Right Side: Contact Details -->
+            <div class="col-md-6">
+                <h6 class="text-uppercase">Send Us a Message</h6>
+                <p><a href="mailto:support@waterandoilrefill.com" class="text-white">support@waterandoilrefill.com</a></p>
+                <p><a href="{% url 'contact' %}" class="text-white">Or use our contact form &rarr;</a></p>
+
+                <h6 class="text-uppercase mt-4">Follow Us</h6>
+                <p>
+                    <a href="https://www.instagram.com/mykot.m" target="_blank" rel="noopener" class="text-white">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+    
+
+{% endblock %}

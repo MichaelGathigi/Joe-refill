@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Joe Refill{% endblock %} | Water & Cooking Oil Refills</title>
+    <link rel="icon" type="image/png" href="{% static 'images/favicon.png' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script defer src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white shadow-sm">
+    <div class="container">
+        <!-- Logo on the Left -->
+        <a class="navbar-brand fw-bold text-primary" href="{% url 'home' %}">
+            <img src="{% static 'images/refill.png' %}" alt="Logo" width="40"> Joe Refill
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+            <!-- Centered Navigation Links -->
+            <ul class="navbar-nav mx-auto gap-lg-4">
+                {% with name=request.resolver_match.url_name %}
+                <li class="nav-item"><a class="nav-link {% if name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a></li>
+                <li class="nav-item"><a class="nav-link {% if name == 'product' %}active{% endif %}" href="{% url 'product' %}">Products</a></li>
+                <li class="nav-item"><a class="nav-link {% if name == 'contact' %}active{% endif %}" href="{% url 'contact' %}">Contact Us</a></li>
+                {% if user.is_authenticated %}
+                <li class="nav-item"><a class="nav-link {% if name == 'my_orders' %}active{% endif %}" href="{% url 'my_orders' %}">My Orders</a></li>
+                {% endif %}
+                {% endwith %}
+            </ul>
+
+            <!-- Buttons on the Right -->
+            <div class="d-flex align-items-center gap-2 py-2 py-lg-0">
+                <a href="{% url 'order_now' %}" class="btn btn-primary">Order Now</a>
+                {% if user.is_authenticated %}
+                    {% if user.is_staff %}
+                    <a href="{% url 'admin:index' %}" class="btn btn-outline-secondary">Admin</a>
+                    {% endif %}
+                    <form method="POST" action="{% url 'logout' %}" class="m-0">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-warning text-dark" title="Logged in as {{ user.username }}">Logout</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-warning text-dark">Login</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Flash messages -->
+{% if messages %}
+<div class="container mt-3">
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- Main Content -->
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+
+<footer class="footer bg-lightblue">
+    <div class="container">
+        <div class="row">
+            <!-- Navigation Links -->
+            <div class="col-md-6">
+                <ul class="footer-nav flex-wrap">
+                    <li><a href="{% url 'home' %}">About Us</a></li>
+                    <li><a href="{% url 'product' %}">Our Services</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <li><a href="{% url 'product' %}#faq">FAQs</a></li>
+                </ul>
+            </div>
+
+            <!-- Social Media Icons -->
+            <div class="col-md-6 text-md-end">
+                <ul class="social-icons">
+                    <li><a href="https://www.instagram.com/mykot.m" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="row">
+            <div class="col-12 text-center">
+                <p class="copyright">© {% now "Y" %} Joe Refill - Water and Cooking Oil Refill Shop. All Rights Reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- JavaScript (Bootstrap) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

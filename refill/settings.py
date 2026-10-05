@@ -10,22 +10,25 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+from django.contrib.messages import constants as message_constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+# Security settings are read from environment variables so production can
+# override them without editing code. The fallbacks are for local development.
+SECRET_KEY = os.environ.get(
+    'DJANGO_SECRET_KEY',
+    'django-insecure-fx-$=9bb@dnr-u=1k$r9oe5*#=$h!cmu7u)s%90tlbghdw5y)0',
+)
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-fx-$=9bb@dnr-u=1k$r9oe5*#=$h!cmu7u)s%90tlbghdw5y)0'
+DEBUG = os.environ.get('DJANGO_DEBUG', 'True').lower() in ('1', 'true', 'yes')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('DJANGO_ALLOWED_HOSTS', 'localhost,127.0.0.1').split(',')
 
 
 # Application definition
@@ -82,8 +85,11 @@ DATABASES = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+# Authentication
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -106,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -117,6 +123,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+# Map Django's "error" message level to Bootstrap's "danger" alert class.
+MESSAGE_TAGS = {
+    message_constants.ERROR: 'danger',
+}
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

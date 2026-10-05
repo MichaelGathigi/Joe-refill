@@ -1,0 +1,67 @@
+{% extends "orders/base.html" %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+            <h2 class="fw-bold m-0">My Orders</h2>
+            <a href="{% url 'order_now' %}" class="btn btn-primary">New Order</a>
+        </div>
+
+        {% if orders %}
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>Product</th>
+                        <th>Qty</th>
+                        <th>Delivery date</th>
+                        <th>Deliver to</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.pk }}</td>
+                        <td>{{ order.get_product_display }}</td>
+                        <td>{{ order.quantity }} L</td>
+                        <td>{{ order.delivery_date|date:"j M Y" }}</td>
+                        <td>{{ order.delivery_address }}, {{ order.location }}</td>
+                        <td>
+                            <span class="badge
+                                {% if order.status == 'delivered' %}bg-success
+                                {% elif order.status == 'confirmed' %}bg-primary
+                                {% elif order.status == 'cancelled' %}bg-secondary
+                                {% else %}bg-warning text-dark{% endif %}">
+                                {{ order.get_status_display }}
+                            </span>
+                        </td>
+                        <td class="text-end">
+                            {% if order.can_cancel %}
+                            <form method="POST" action="{% url 'cancel_order' order.pk %}" class="m-0"
+                                  onsubmit="return confirm('Cancel order #{{ order.pk }}?');">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-outline-danger">Cancel</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="text-center py-5 text-muted">
+            <i class="fas fa-box-open" style="font-size: 48px;"></i>
+            <p class="mt-3">You haven't placed any orders yet.</p>
+            <a href="{% url 'order_now' %}" class="btn btn-primary">Place Your First Order</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

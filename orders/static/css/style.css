@@ -1,0 +1,323 @@
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 60px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+}
+
+
+.contact-section {
+    background: linear-gradient(to bottom, #0d1bd6, #0d1bd6); /* Blue gradient */
+}
+.contact-section a {
+    text-decoration: none;
+    font-weight: bold;
+}
+.contact-section a:hover {
+    text-decoration: underline;
+}
+.service-section {
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.text-primary {
+    color: #007bff !important; /* Bootstrap primary blue */
+}
+
+.bi {
+    font-size: 1.5rem; /* Adjust icon size */
+}
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 50px;
+}
+
+.text-content {
+    max-width: 50%;
+    padding-right: 20px;
+}
+
+.image-content {
+    flex: 1;
+}
+
+.image-content img {
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+}
+.custom-heading {
+    font-weight: bold; /* Makes the heading bold */
+}
+.custom-text {
+    color: #505050; /* Dark gray text */
+}
+.faq-section {
+    padding: 0px 40px;
+}
+
+.faq-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.accordion-button {
+    font-weight: bold;
+}
+
+.accordion-body {
+    font-size: 16px;
+    color: #555;
+}
+.order-section {
+    background-color: #e3f5ff; /* Light blue background */
+    padding: 60px 0;
+    margin-top: 30px; /* Adds space above */
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    margin-bottom: 70px;
+}
+
+.order-step {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.order-step i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.order-step p {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.order-step:hover {
+    transform: scale(1.05);
+}
+.choose-us-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.icon-box {
+    background-color: #007bff;
+    color: white;
+    font-size: 24px;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.feature-title {
+    font-weight: bold;
+}
+.bg-lightblue {
+    background-color: #eaf6ff; /* Light blue background */
+    padding: 20px 0;
+}
+
+.footer-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-nav li a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.social-icons li a {
+    font-size: 20px;
+    color: #000;
+}
+
+.copyright {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+.bg-lightblue {
+    background-color: #eaf6ff; /* Light blue background */
+}
+
+.image-container img {
+    border-radius: 15px;
+    width: 100%;
+    height: auto;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    
+    margin-bottom: 15px;
+}
+
+.info-item i {
+    font-size: 24px;
+    color: #007bff;
+    margin-right: 15px;
+}
+
+.contact-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-btn i {
+    margin-left: 10px;
+}
+.icon {
+    font-size: 22px;
+    color: #007bff;
+    margin-right: 12px;
+}
+.info-item {
+    min-width: 180px; /* Ensures each section is evenly spaced */
+}
+.schedule-delivery {
+    background-color: #e8f4fc; /* Light blue background */
+    padding: 60px 0;
+}
+
+.steps-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    position: relative;
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.step {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.step::before {
+    content: "";
+    position: absolute;
+    left: 28px;
+    top: 40px;
+    width: 2px;
+    height: 70px;
+    background-color: #ddd;
+    border-left: 2px dotted #007bff;
+}
+
+.step:last-child::before {
+    display: none;
+}
+
+.icon1 {
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    z-index: 1;
+}
+
+.content {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .steps-container {
+        align-items: center;
+    }
+
+    .step {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .step::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .icon1 {
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+/* Navbar gets a stronger shadow once the page is scrolled (see js/script.js) */
+.navbar.scrolled {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Keep in-page anchors (e.g. #faq) clear of the fixed navbar */
+[id] {
+    scroll-margin-top: 80px;
+}

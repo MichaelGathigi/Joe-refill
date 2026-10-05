@@ -1,0 +1,28 @@
+{% extends "orders/base.html" %}
+
+{% block title %}Order Received{% endblock %}
+
+{% block content %}
+<section class="py-5" style="background: linear-gradient(to bottom, #e0f2ff, white);">
+    <div class="container text-center" style="max-width: 640px;">
+        <i class="fas fa-circle-check text-success" style="font-size: 64px;"></i>
+        <h2 class="fw-bold mt-3">Thank you, {{ user.username }}!</h2>
+        <p class="lead text-muted">Your order <strong>#{{ order.pk }}</strong> has been received. We'll call you on {{ order.phone }} to confirm.</p>
+
+        <div class="card shadow-sm text-start mt-4">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between"><span class="text-muted">Product</span><strong>{{ order.get_product_display }}</strong></li>
+                <li class="list-group-item d-flex justify-content-between"><span class="text-muted">Quantity</span><strong>{{ order.quantity }} L</strong></li>
+                <li class="list-group-item d-flex justify-content-between"><span class="text-muted">Delivery date</span><strong>{{ order.delivery_date|date:"D, j M Y" }}</strong></li>
+                <li class="list-group-item d-flex justify-content-between"><span class="text-muted">Deliver to</span><strong class="text-end">{{ order.delivery_address }}, {{ order.location }}</strong></li>
+                <li class="list-group-item d-flex justify-content-between"><span class="text-muted">Status</span><span class="badge bg-warning text-dark align-self-center">{{ order.get_status_display }}</span></li>
+            </ul>
+        </div>
+
+        <div class="mt-4 d-flex gap-2 justify-content-center flex-wrap">
+            <a href="{% url 'my_orders' %}" class="btn btn-primary">View My Orders</a>
+            <a href="{% url 'order_now' %}" class="btn btn-outline-dark">Place Another Order</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
